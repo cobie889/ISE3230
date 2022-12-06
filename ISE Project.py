@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
-
 import gurobipy as gp
 from gurobipy import GRB
 
@@ -117,27 +111,6 @@ print("obj_func = ", m.objVal)
 for v in m.getVars():
     print('value of %s is %g' % (v.varName, v.x))
 
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
