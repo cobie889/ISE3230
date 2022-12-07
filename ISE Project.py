@@ -104,14 +104,15 @@ m.addConstr(x[1] >= 2-100000*(1-B[3]))
 m.addConstr(2 >= w[2] -100000* B[3])
 
 #Either social activity >5 or studying>7
-m.addConstr(1 <= r[1] + 100000*(1-A[0]))
-m.addConstr(7 <= y[0] + 100000*(1-A[1]))
+m.addConstr(r[2] <= 1 + 100000*(1-A[0]))
+m.addConstr(y[0] <=7 + 100000*(1-A[1]))
 m.addConstr(A[0] + A[1] == 1)
 
 #at least meals > 1.5 or sleep >= 8
-m.addConstr(1.5 <= t[0] + 100000*(1-C[0]))
-m.addConstr(7 <= x[0] +100000*(1-C[1]))
+m.addConstr(t[0] <= 1.5 + 100000*(1-C[0]))
+m.addConstr(x[0] <= 7 +100000*(1-C[1]))
 m.addConstr(C[0] + C[1] >= 1)
+
 
 m.optimize()
 
