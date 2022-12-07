@@ -17,7 +17,7 @@ A = m.addVars(2, vtype =GRB.BINARY, name ="A")
 # B[2] for If academics  > 10
 # B[3] for If physical activity > 4
 B = m.addVars(4, vtype =GRB.BINARY, name ="B")
-# C for Either social activity >7 or studying>7
+# C for either meals >= 1.5 or sleep >= 7
 C = m.addVars(2, vtype =GRB.BINARY, name ="C")
 
 
