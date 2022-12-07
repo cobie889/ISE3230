@@ -33,19 +33,27 @@ while studentType != '1' and studentType != '2' and studentType != '3' and stude
     studentType = input()
 
     if studentType == '1':
-        m.setObjective(.35*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .20*(100*t[0]-5*t[1]-20*t[2]) + .18*(100*y[0] -5*y[1] -20*y[2]) + .09*(95*w[0] + 5*w[1] -20*w[2]) + .11*(80*s[0] + 20*s[1] -20*s[2]) + .07*(80*r[0] + 20*r[1] -15*r[2] -20*r[3]), GRB.MAXIMIZE)
+        m.setObjective(.35*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .20*(100*t[0]-5*t[1]-20*t[2]) 
+                       + .18*(100*y[0] -5*y[1] -20*y[2]) + .09*(95*w[0] + 5*w[1] -20*w[2]) 
+                       + .11*(80*s[0] + 20*s[1] -20*s[2]) + .07*(80*r[0] + 20*r[1] -15*r[2] -20*r[3]), GRB.MAXIMIZE)
         print("Optimized weekday for the normal student: ")
     elif studentType == '2':
-        m.setObjective(.25*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .15*(100*t[0]-5*t[1]-20*t[2]) + .4*(80*y[0] +20*y[1] -5*y[2]) + .02*(95*w[0] + 5*w[1] -20*w[2]) + .15*(80*s[0] + 20*s[1] -20*s[2]) + .03*(80*r[0] + 20*r[1] -15*r[2] -20*r[3]), GRB.MAXIMIZE)    
+        m.setObjective(.25*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .15*(100*t[0]-5*t[1]-20*t[2]) 
+                       + .4*(80*y[0] +20*y[1] -5*y[2]) + .02*(95*w[0] + 5*w[1] -20*w[2]) 
+                       + .15*(80*s[0] + 20*s[1] -20*s[2]) + .03*(80*r[0] + 20*r[1] -15*r[2] -20*r[3]), GRB.MAXIMIZE)    
         print("Optimized weekday for the scholar: ")
     elif studentType == '3':
-        m.setObjective(.25*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .25*(100*t[0]+0*t[1]-10*t[2]) + .05*(100*y[0] -5*y[1] -20*y[2]) + .4*(70*w[0] + 25*w[1] -20*w[2]) + .03*(80*s[0] + 20*s[1] -20*s[2]) + .02*(80*r[0] + 20*r[1] -15*r[2] -20*r[3]), GRB.MAXIMIZE)
+        m.setObjective(.25*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .25*(100*t[0]+0*t[1]-10*t[2]) 
+                       + .05*(100*y[0] -5*y[1] -20*y[2]) + .4*(70*w[0] + 25*w[1] -20*w[2]) 
+                       + .03*(80*s[0] + 20*s[1] -20*s[2]) + .02*(80*r[0] + 20*r[1] -15*r[2] -20*r[3]), GRB.MAXIMIZE)
         m.addConstr(w[0] == 1)
         m.addConstr(w[1] == 1)
         m.addConstr(w[2] >= 2)
         print("Optimized weekday for the student athlete: ")
     elif studentType == '4':
-        m.setObjective(.13*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .2*(100*t[0]-5*t[1]-20*t[2]) + .07*(100*y[0] -5*y[1] -20*y[2]) + .09*(95*w[0] + 5*w[1] -20*w[2]) + .11*(80*s[0] + 20*s[1] -20*s[2]) + .4*(40*r[0] + 40*r[1] +20*r[2] -20*r[3]), GRB.MAXIMIZE)
+        m.setObjective(.13*(90*x[0]+10*x[1]-10*x[2]-40*x[3]) + .2*(100*t[0]-5*t[1]-20*t[2]) 
+                       + .07*(100*y[0] -5*y[1] -20*y[2]) + .09*(95*w[0] + 5*w[1] -20*w[2]) 
+                       + .11*(80*s[0] + 20*s[1] -20*s[2]) + .4*(40*r[0] + 40*r[1] +20*r[2] -20*r[3]), GRB.MAXIMIZE)
         print("Optimized weekday for the social butterfly: ")
     else:
         print("Input not recognized, try again")
@@ -71,7 +79,8 @@ m.addConstr(r[0] <= 2)
 m.addConstr(r[1] <= 2)
 m.addConstr(r[2] <= 2)
 m.addConstr(r[3] <= 18)
-m.addConstr(x[0] + x[1] + x[2] + x[3] + t[0] + t[1] +t[2] + y[0] + y[1] + y[2] + w[0] + w[1] + w[2] + s[0] + s[1] + s[2] + r[0] + r[1] + r[2] + r[3] ==24 )
+m.addConstr(x[0] + x[1] + x[2] + x[3] + t[0] + t[1] +t[2] + y[0] + y[1] + y[2] + w[0] 
+            + w[1] + w[2] + s[0] + s[1] + s[2] + r[0] + r[1] + r[2] + r[3] ==24 )
 
 
 #If physical activity > 1.5, then meal >= 1.5
